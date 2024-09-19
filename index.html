@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embed Website</title>
+    <style>
+        #iframe-container {
+            position: relative;
+            width: 100%;
+            height: 90vh;
+        }
+        #iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        #fullscreen-btn {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div id="iframe-container">
+        <iframe id="iframe" src="https://gov.kje.us"></iframe>
+        <button id="fullscreen-btn" onclick="toggleFullscreen()">Fullscreen</button>
+    </div>
+
+    <script>
+        function toggleFullscreen() {
+            var iframeContainer = document.getElementById('iframe-container');
+            if (iframeContainer.requestFullscreen) {
+                iframeContainer.requestFullscreen();
+            } else if (iframeContainer.mozRequestFullScreen) { // Firefox
+                iframeContainer.mozRequestFullScreen();
+            } else if (iframeContainer.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                iframeContainer.webkitRequestFullscreen();
+            } else if (iframeContainer.msRequestFullscreen) { // IE/Edge
+                iframeContainer.msRequestFullscreen();
+            }
+        }
+    </script>
+</body>
+</html>
